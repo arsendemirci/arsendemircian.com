@@ -1,2 +1,88 @@
 .main {
+  background-color: #027b9a;
+  background: $bg-linear-blue;
+  color: #fff;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  box-shadow: 0 -5px 12px gray;
+  border: 2px solid black;
+  border-bottom: none;
+  max-width: $bodyMaxWidth;
+  .wrapper {
+    background: url(../../../../public/image/bg/sp_main_bg.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    background-position: right;
+    width: 100%;
+    display: flex;
+    padding-left: 30px;
+    .links {
+      bottom: 50px;
+      height: 54px;
+      position: absolute;
+      right: 30px;
+      width: 170px;
+      overflow: hidden;
+      > div {
+        a {
+            position: absolute;
+            transition: all .2s ease-in-out;
+            &:hover{
+                transform: scale(1.2);
+            }
+          span {
+            position: absolute;
+            clip: rect(1px 1px 1px 1px);
+            clip: rect(1px, 1px, 1px, 1px);
+            -webkit-clip-path: inset(0px 0px 99.9% 99.9%);
+            clip-path: inset(0px 0px 99.9% 99.9%);
+            overflow: hidden;
+            height: 1px;
+            width: 1px;
+            padding: 0;
+            border: 0;
+            top: 50%;
+          }
+          svg {
+            display: block;
+            path {
+              fill: #fffff2;
+              transition: fill 0.2s;
+            }
+          }
+          &:nth-child(1) {
+            height: 26px;
+            left: 12px;
+            top: 20px;
+            width: 26px;
+          }
+          &:nth-child(2) {
+            height: 38px;
+            left: 66px;
+            top: 9px;
+            width: 38px;
+          }
+          &:nth-child(3) {
+            height: 32px;
+            left: 129px;
+            top: 18px;
+            width: 32px;
+          }
+        }
+      }
+      .svgbg {
+        height: 54px;
+        left: 0;
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 236px;
+        path {
+          fill: rgb(19, 147, 184);
+        }
+      }
+    }
+  }
 }

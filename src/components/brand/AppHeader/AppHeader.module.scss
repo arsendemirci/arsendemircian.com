@@ -12,16 +12,9 @@
   // border-bottom-left-radius: 15% 100px;
   // border-bottom-right-radius: 15% 100px;
   width: 100%;
-  max-width: 1200px;
+  max-width: $bodyMaxWidth;
   * {
     transition: all 0.2s ease-in-out;
-  }
-  svg {
-    margin-left: 10px;
-    transition: transform 0.2s ease-in-out;
-    &:hover {
-      transform: scale(1.2);
-    }
   }
   .wrapper {
     background: url(../../../../public/image/bg/sp_main_bg.png);
@@ -35,9 +28,9 @@
     padding: 0 60px;
     width: 100%;
     gap: 30px;
-    svg {
-      width: 28px;
-      height: 28px;
+    h1{
+      text-shadow: 6px 6px 5px rgb(26, 26, 26);
+      white-space: nowrap;
     }
   }
   .navigation {
@@ -53,6 +46,7 @@
       display: block;
       padding: 0;
       margin: 0;
+      white-space: nowrap;
       li {
         display: inline-block;
 
