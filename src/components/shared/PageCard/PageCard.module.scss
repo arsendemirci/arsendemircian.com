@@ -1,0 +1,34 @@
+.main {
+  width: 100%;
+  max-width: $pageMaxWidth;
+  margin-top: $pageMarginTop;
+  min-height: $pageMinHeight;
+  box-shadow: $boxShadow;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid gray;
+  background-color: white;
+  .wrapper {
+    overflow: hidden;
+    border-radius: 10px;
+    .header {
+      @include getBrandBg(right, $bg-linear-blue);
+    //   background-color: #0f668bab;
+      height: $pageHeaderHeight;
+      padding: 10px;
+      color: white;
+      border-bottom: 1px solid black;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: large;
+      font-weight: 600;
+      text-shadow: 0 0 20px BLACK;
+    }
+    .body {
+      min-height: $pageBodyMinHeight;
+      background-color: white;
+      position: relative;
+    }
+  }
+}

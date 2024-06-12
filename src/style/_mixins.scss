@@ -1,0 +1,13 @@
+@mixin getBrandBg($bgPosition, $color, $bgUrl: 1, $size: auto) {
+  $url: if(
+    $bgUrl == 1,
+    '../../public/image/bg/sp_main_bg.png',
+    '../../public/image/bg/main_bg.png'
+  );
+  background: $color;
+  background-image: url($url); /* fallback */
+  background-image: url($url), $color;
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: $bgPosition;
+}

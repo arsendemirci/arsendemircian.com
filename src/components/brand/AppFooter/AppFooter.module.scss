@@ -1,20 +1,17 @@
 .main {
-  background-color: #027b9a;
-  background: $bg-linear-blue;
+  @include getBrandBg(right, $bg-linear-blue);
   color: #fff;
   text-align: center;
   position: fixed;
   bottom: 0;
   width: 100%;
-  box-shadow: 0 -5px 12px gray;
+  box-shadow: $boxShadow;
   border: 2px solid black;
   border-bottom: none;
   max-width: $bodyMaxWidth;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
   .wrapper {
-    background: url(../../../../public/image/bg/sp_main_bg.png);
-    background-size: auto;
-    background-repeat: no-repeat;
-    background-position: right;
     width: 100%;
     display: flex;
     padding-left: 30px;
@@ -27,11 +24,11 @@
       overflow: hidden;
       > div {
         a {
-            position: absolute;
-            transition: all .2s ease-in-out;
-            &:hover{
-                transform: scale(1.2);
-            }
+          position: absolute;
+          transition: all 0.2s ease-in-out;
+          &:hover {
+            transform: scale(1.2);
+          }
           span {
             position: absolute;
             clip: rect(1px 1px 1px 1px);
