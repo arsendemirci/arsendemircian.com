@@ -1,4 +1,4 @@
-$mainBgColor: rgba(187, 187, 187, 0.445);
+$mainBgColor: rgba(0, 0, 0, 0.445);
 $appHeaderHeight: 82px;
 $appFooterHeight: 54px;
 $footerLinksHeight: 54px;
@@ -7,13 +7,13 @@ $pageHeaderHeight: 60px;
 $footerTotalHeight: calc($appFooterHeight + $footerLinksHeight);
 $pageMarginTop: calc($appHeaderHeight + 30px);
 $pageMarginBottom: 10px;
+$bg-primary: #0d658a;
 $bg-linear-blue: linear-gradient(rgb(19 147 184) 0%, rgb(11 94 131) 100%);
 
 $pageMinHeight: calc(
-  100vh -
-    ($footerTotalHeight + $pageMarginTop + $pageMarginBottom)
+  100vh - ($footerTotalHeight + $pageMarginTop + $pageMarginBottom)
 );
 $pageBodyMinHeight: calc($pageMinHeight - $pageHeaderHeight);
 $bodyMaxWidth: 1200px;
 $pageMaxWidth: calc($bodyMaxWidth - 50px);
-$boxShadow:0 0 20px rgb(86, 86, 86);
+$boxShadow: 0 0 20px rgb(86, 86, 86);

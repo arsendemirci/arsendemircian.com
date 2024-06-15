@@ -1,4 +1,12 @@
 .main {
-
-
+  margin-top: 80px;
+  padding: 0 50px;
+  .about {
+    float: left;
+    width: 50%;
+    max-width: 400px;
+  }
+  .profile {
+    float: left;
+  }
 }

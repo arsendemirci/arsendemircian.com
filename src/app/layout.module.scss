@@ -5,7 +5,6 @@
   align-items: center;
   min-width: 100%;
   min-height: 100vh;
-  @include getBrandBg(center, rgb(89, 89, 89), 2, cover);
   > main {
     min-width: 100%;
     display: flex;
@@ -13,6 +12,6 @@
     justify-content: space-between;
     align-items: center;
     min-height: 100vh;
-    @include getBrandBg(center, rgb(89, 89, 89), 2, cover);
+    @include getBrandBg(center, rgb(0, 0, 0), 2, cover);
   }
 }

@@ -8,27 +8,42 @@
   overflow: hidden;
   border: 1px solid gray;
   background-color: white;
+  opacity: 0;
+  transform: perspective(1200px) translateX(-500px) rotateY(50deg) scale(0.5);
+  animation: fadeIn 0.5s ease-in-out forwards;
   .wrapper {
-    overflow: hidden;
     border-radius: 10px;
     .header {
       @include getBrandBg(right, $bg-linear-blue);
-    //   background-color: #0f668bab;
-      height: $pageHeaderHeight;
+      text-transform: capitalize;
       padding: 10px;
       color: white;
       border-bottom: 1px solid black;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-size: large;
       font-weight: 600;
       text-shadow: 0 0 20px BLACK;
     }
     .body {
-      min-height: $pageBodyMinHeight;
+      max-height: $pageBodyMinHeight;
+      width: 100%;
       background-color: white;
-      position: relative;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding: 10px;
     }
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: perspective(1200px) translateX(-500px) rotateY(50deg) scale(0.5);
+  }
+  80% {
+    opacity: 1;
+    transform: perspective(1200px) translateX(100px) rotateY(0deg) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: perspective(1200px) translateX(0) rotateY(0deg) scale(1);
   }
 }

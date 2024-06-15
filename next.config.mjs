@@ -9,6 +9,14 @@ const nextConfig = {
       },
     ];
   },
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'picsum.photos',
+      },
+    ],
+  },
   sassOptions: {
     prependData: `@import "/src/style/_variables.scss";
        @import "/src/style/_mixins.scss"; `,

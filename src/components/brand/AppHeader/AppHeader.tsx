@@ -1,29 +1,28 @@
 import styles from './AppHeader.module.scss';
-import Image from 'next/image';
-interface AppHeaderProps {
-  title: string;
-}
+import { useContext } from 'react';
+import { AppContext } from '@/context/contextProvider';
+import { AppHeaderProps } from '@types';
+import { links } from '@/config/menu';
+import { HomeHeader } from '@/components';
 
 const AppHeader: React.FC<AppHeaderProps> = ({ title }) => {
+  const ctx = useContext(AppContext);
+
   return (
     <header className={styles.main}>
       <div className={styles.wrapper}>
         <div className={styles.navigation}>
           <ul>
-            <li>
-              <a className={styles.active} href="#home">
-                Home
-              </a>
-            </li>
-            <li>
-              <a href="#resume">Resume</a>
-            </li>
-            <li>
-              <a href="#portfolio">Portfolio</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
-            </li>
+            {links.map((link, index) => (
+              <li key={index + 1}>
+                <a
+                  className={`${ctx.currentPath == link.href ? styles.active : ''}`}
+                  href={link.href}
+                >
+                  {link.name}
+                </a>
+              </li>
+            ))}
           </ul>
           <div className={styles.links}></div>
         </div>
