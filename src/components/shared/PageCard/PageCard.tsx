@@ -16,8 +16,10 @@ const PageCard: React.FC<PageCardProps> = ({ children }) => {
     if (pathName !== ctx.currentPath) {
       setMainClass(`${styles.main} ${styles.close}`);
       setTimeout(() => {
-        setMainClass(`${styles.main} ${styles.open}`);
         router.push(ctx.currentPath);
+      }, 550);
+      setTimeout(() => {
+        setMainClass(`${styles.main} ${styles.open}`);
       }, 700);
     } else {
       setMainClass(`${styles.main} ${styles.open}`);
