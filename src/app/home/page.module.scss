@@ -34,7 +34,9 @@
       display: flex;
       align-items: center;
       transition: all 0.2s ease-in-out;
+      max-width: 200px;
       &:hover {
+        max-width: 346px;
         text-shadow: 2px 2px 6px rgba(108, 108, 108, 0.465);
 
         .download {
