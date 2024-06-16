@@ -14,7 +14,7 @@
   .wrapper {
     border-radius: 10px;
     .header {
-      @include getBrandBg(right, $bg-linear-blue);
+      @include getBrandBg(right, $bg-gradient-primary);
       text-transform: capitalize;
       padding: 10px;
       color: white;

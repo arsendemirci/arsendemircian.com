@@ -13,7 +13,7 @@
   }
 }
 @mixin headerStyle2 {
-  @include getBrandBg(center,$bg-linear-blue);
+  @include getBrandBg(center,$bg-gradient-primary);
   border: 0.14em solid rgb(0 0 0 / 67%);
   border-top: none;
   box-shadow: 0 5px 15px #80808087;

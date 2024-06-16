@@ -5,7 +5,7 @@ import { AppContextProviderType } from '@types';
 const AppContext = createContext({
   pageTitle: 'Home',
   currentPath: '/home',
-  setPath: (path) => {},
+  setPath: (path: string) => {},
 });
 
 const AppContextProvider = ({
@@ -17,7 +17,7 @@ const AppContextProvider = ({
   const context = {
     pageTitle: appPath.replace(/^\//, ''),
     currentPath: appPath,
-    setPath: (path: any) => setPath(path),
+    setPath: (path: string) => setPath(path),
   };
 
   return <AppContext.Provider value={context}>{children}</AppContext.Provider>;

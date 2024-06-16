@@ -14,21 +14,25 @@
       border-radius: 10px;
       background-color: #fff;
       box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+      float: right;
       img {
         border-radius: 10px;
         vertical-align: bottom;
         max-width: 100%;
         height: auto;
-        border: solid 4px $bg-primary;
+        border: solid 4px $bg-primary-light;
       }
     }
     width: 33.333%;
-    float: left;
+    float: right;
   }
   .titleDiv {
     width: 60%;
     float: left;
     .titleBlock {
+      > * {
+        margin-bottom: 15px;
+      }
       h1 {
         font-size: 50px;
         font-weight: 700;
@@ -41,6 +45,7 @@
         display: inline-flex;
         position: relative;
         flex-direction: column;
+        transform: perspective(10px) rotateX(2deg);
         height: 32px;
         overflow: hidden;
         > div {
@@ -49,6 +54,20 @@
           animation: carouselItem 13s linear infinite;
           > div {
             margin-bottom: 10px;
+          }
+        }
+      }
+      .social {
+        position: relative;
+        a {
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+          display: inline-block;
+          &:hover {
+            transform: scale(1.2);
+          }
+          &:not(:last-child) {
+            margin-right: 10px;
           }
         }
       }
