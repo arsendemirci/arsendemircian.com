@@ -20,15 +20,23 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
   border: 1px solid gray;
   background-color: white;
   opacity: 0;
+  transition: background-color 0.65s ease-in-out;
   transform: perspective(1200px) translateX(-500px) rotateY(50deg) scale(0.4);
   &.close {
     animation: fadeOut 0.65s ease-in-out forwards;
+    .wrapper {
+      opacity: 0;
+    }
   }
   &.open {
     animation: fadeIn 0.65s ease-in-out forwards;
+    .wrapper {
+      opacity: 1;
+    }
   }
   .wrapper {
     border-radius: 10px;
+    transition: opacity 0.5s ease-in-out;
     .header {
       @include getBrandBg(right, $bg-gradient-primary);
       text-transform: capitalize;
