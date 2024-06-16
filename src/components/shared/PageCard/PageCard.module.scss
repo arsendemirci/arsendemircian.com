@@ -10,7 +10,12 @@
   background-color: white;
   opacity: 0;
   transform: perspective(1200px) translateX(-500px) rotateY(50deg) scale(0.5);
-  animation: fadeIn 0.5s ease-in-out forwards;
+  &.close {
+    animation: fadeOut 0.65s ease-in-out forwards;
+  }
+  &.open {
+    animation: fadeIn 0.65s ease-in-out forwards;
+  }
   .wrapper {
     border-radius: 10px;
     .header {
@@ -36,14 +41,28 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    transform: perspective(1200px) translateX(-500px) rotateY(50deg) scale(0.5);
+    transform: perspective(1100px) translateX(-500px) rotateY(50deg) scale(0.5);
   }
   80% {
     opacity: 1;
-    transform: perspective(1200px) translateX(100px) rotateY(0deg) scale(1.1);
+    transform: perspective(1100px) translateX(100px) rotateY(0deg) scale(1.1);
   }
   100% {
     opacity: 1;
-    transform: perspective(1200px) translateX(0) rotateY(0deg) scale(1);
+    transform: perspective(1100px) translateX(0) rotateY(0deg) scale(1);
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: perspective(1100px) translateX(0) rotateY(0deg) scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: perspective(1100px) translateX(-100px) rotateY(0deg) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: perspective(1100px) translateX(500px) rotateY(50deg) scale(0.5);
   }
 }

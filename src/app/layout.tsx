@@ -6,6 +6,7 @@ import '@/style/global.scss';
 import styles from './layout.module.scss';
 import App from '@/App';
 import { AppContextProvider, AppContext } from '@/context/contextProvider';
+import { useEffect } from 'react';
 const inter = Inter({ subsets: ['latin'] });
 // export const metadata: Metadata = {
 //   title: 'Create Next App',

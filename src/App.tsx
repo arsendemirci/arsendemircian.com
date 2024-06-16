@@ -1,6 +1,6 @@
+'use client';
 import { Fragment } from 'react';
 import { AppHeader, AppFooter, PageCard } from '@/components';
-
 const App = (props: any) => {
   return (
     <Fragment>

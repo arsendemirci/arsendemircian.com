@@ -8,12 +8,10 @@ export interface NavLinkType {
 }
 
 export interface PageCardProps {
-  //   title: String | null;
   children: ReactNode;
 }
 
 export interface AppContextType {
-  pageTitle: string;
   currentPath: string;
 }
 export interface AppContextProviderType {
