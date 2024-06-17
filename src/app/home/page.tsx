@@ -26,11 +26,11 @@ export default function Home() {
           <ul>
             <li>
               <span>Residence</span>
-              <span>Armenia</span>
+              <span>Turkey</span>
             </li>
             <li>
               <span>Address</span>
-              <span>Yerevan, Armenia</span>
+              <span>Istanbul, Turkey</span>
             </li>
             <li>
               <span>e-mail</span>

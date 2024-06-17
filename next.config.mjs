@@ -19,7 +19,8 @@ const nextConfig = {
   },
   sassOptions: {
     prependData: `@import "/src/style/_variables.scss";
-       @import "/src/style/_mixins.scss"; `,
+       @import "/src/style/_mixins.scss"; 
+       @import "/src/style/_responsive";`,
   },
 };
 

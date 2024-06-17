@@ -1,0 +1,68 @@
+$breakpoints: (
+  xxs: 20em,
+  // 320px
+  xs: 30em,
+  // 480px
+  sm: 48em,
+  // 768px
+  md: 64em,
+  // 1024px
+  lg: 80em,
+  // 1280px
+  xl: 120em // 1920px,,,,,,
+);
+
+@mixin mq-hide-up($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    visibility: hidden;
+    display: none;
+  }
+}
+@mixin mq-show-down($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (max-width: $size) {
+    visibility: visible;
+    display: block;
+  }
+}
+@mixin mq-hide-down($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (max-width: $size) {
+    visibility: hidden;
+    display: none;
+  }
+}
+@mixin mq-show-up($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    visibility: visible;
+    display: block;
+  }
+}
+
+@mixin mq-down($key) {
+  $size: map-get($breakpoints, $key);
+  @media only screen and (max-width: $size) {
+    @content;
+  }
+}
+// .mobile-only {
+//   visibility: hidden;
+//   display: none;
+//   @include query(md);
+// }
+// @media only screen and (max-width: 991px) {
+//   .mobile-only {
+//     visibility: visible;
+//     display: block;
+//   }
+//   .mobile-hidden {
+//     visibility: hidden;
+//     display: none;
+//   }
+// }

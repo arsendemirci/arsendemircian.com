@@ -73,6 +73,23 @@
       }
     }
   }
+  @include mq-down(md) {
+    display: flex;
+    flex-direction: column-reverse;
+    width: 100%;
+    align-items: center;
+    text-align: center;
+    .titleDiv {
+      width: 100%;
+    }
+    .imageDiv {
+      width: 100%;
+      .photo {
+        float: none;
+        margin: auto;
+      }
+    }
+  }
 }
 @keyframes carouselItem {
   from {
