@@ -9,7 +9,7 @@ $breakpoints: (
   // 1024px
   lg: 80em,
   // 1280px
-  xl: 120em // 1920px,,,,,,
+  xl: 120em // 1920px,,,,,,,,
 );
 
 @mixin mq-hide-up($key) {
@@ -44,7 +44,30 @@ $breakpoints: (
     display: block;
   }
 }
+@mixin mq-only-down($key) {
+  $size: map-get($breakpoints, $key);
 
+  @media only screen and (max-width: $size) {
+    visibility: visible;
+    display: block;
+  }
+  @media only screen and (min-width: $size) {
+    visibility: hidden;
+    display: none;
+  }
+}
+@mixin mq-only-up($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (max-width: $size) {
+    visibility: hidden;
+    display: none;
+  }
+  @media only screen and (min-width: $size) {
+    visibility: visible;
+    display: block;
+  }
+}
 @mixin mq-down($key) {
   $size: map-get($breakpoints, $key);
   @media only screen and (max-width: $size) {

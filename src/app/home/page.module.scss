@@ -50,6 +50,10 @@
   .mainWrapper {
     display: flex;
     justify-content: space-between;
+    @include mq-down(md) {
+      flex-direction: column;
+      justify-content: flex-start;
+    }
   }
   .about {
     max-width: 550px;
@@ -76,6 +80,48 @@
           display: inline-block;
         }
       }
+    }
+  }
+  .downloadMobile {
+    a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 15px;
+      margin-bottom: 10px;
+      background: $bg-gradient-primary;
+      color: white;
+      border-radius: 20px;
+      gap: 10px;
+    }
+    @include mq-only-down(md);
+  }
+  @include mq-down(md) {
+    text-align: center;
+    margin-top: 0;
+    a {
+      pointer-events: none;
+      h1 {
+        display: inline-block;
+      }
+    }
+
+    .mainWrapper {
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 30px;
+      align-items: center;
+    }
+    .about {
+      padding-bottom: 30px;
+      border-bottom: solid 1px gray;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .download {
+      visibility: hidden;
+      display: none !important;
     }
   }
 }

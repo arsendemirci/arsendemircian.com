@@ -21,6 +21,12 @@ export default function Home() {
             leading and mentoring skills with long years of technical and
             business experience.
           </div>
+          <div className={styles.downloadMobile}>
+            <a download={true} href="/files/Arsen-Resume.pdf">
+              <Icon width={28} height={28} icon="download" />
+              Download Resume
+            </a>
+          </div>
         </div>
         <div className={styles.profile}>
           <ul>

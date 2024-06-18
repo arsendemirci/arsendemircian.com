@@ -56,6 +56,11 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
       padding: 10px;
     }
   }
+  @include mq-down(md) {
+    border-radius: 0;
+    margin-bottom: 140px;
+    padding-bottom: 40px;
+  }
 }
 @keyframes fadeIn {
   0% {

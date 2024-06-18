@@ -81,5 +81,36 @@
         }
       }
     }
+    @include mq-only-up(md);
+  }
+  .wrapperMobile {
+    @include mq-only-down(md);
+    @include mq-down(md) {
+      display: flex;
+    }
+
+    justify-content: space-between;
+    padding: 10px 15px;
+    align-items: center;
+    div {
+      &:last-child {
+        display: flex;
+        align-items: center;
+      }
+    }
+    a {
+      &:not(:last-child) {
+        margin-right: 10px;
+      }
+    }
+  }
+  @include mq-down(md) {
+    border-radius: 0;
+    font-size: 18px;
+    font-weight: bold;
+    .links {
+      visibility: none;
+      display: none !important;
+    }
   }
 }
