@@ -138,7 +138,7 @@
   right: 0;
   height: 60px;
   background: $bg-gradient-primary;
-  box-shadow: 0 3px 8px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: $boxShadow;
   z-index: 1000;
   .logo {
     font-size: 18px;

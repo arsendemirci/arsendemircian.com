@@ -1,3 +1,11 @@
+.bg {
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-repeat: no-repeat;
+  background-position: center;
+  @include getBrandBg(center, rgb(0, 0, 0), 2, cover);
+}
 .main {
   display: flex;
   flex-direction: column;

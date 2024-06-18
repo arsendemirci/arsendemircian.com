@@ -61,6 +61,7 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
   }
   @include mq-down(md) {
     border-radius: 0;
+    margin-top: 80px;
     margin-bottom: 140px;
     padding-bottom: 40px;
     transform: perspective(1200px) translateX(0) translateY(0) rotateY(0)

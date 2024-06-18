@@ -22,6 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <div className={styles.bg}></div>
         <main className={styles.main}>
           <AppContextProvider currentPath={pathName}>
             <App>{children}</App>

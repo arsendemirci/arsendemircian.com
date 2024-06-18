@@ -33,14 +33,14 @@ const AppFooter = () => {
           <div>
             <p>
               <a href="#" target="_self">
-                ©2020. | Designed By: Arsen Demircian. | All rights reserved.
+                ©2024. | Designed By: Arsen Demircian. | All rights reserved.
               </a>
             </p>
           </div>
         </div>
       </div>
       <div className={styles.wrapperMobile}>
-        <div>©2020. | Arsen Demircian.</div>
+        <div>©2024. | Arsen Demircian.</div>
         <div>
           <a
             href="https://www.linkedin.com/in/arsen-demirci-2a3046a6"

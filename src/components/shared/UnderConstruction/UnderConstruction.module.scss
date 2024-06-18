@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 500px;
+  min-height: $pageMinHeight;
   h1 {
     font-size: 3em;
     width: 100%;
