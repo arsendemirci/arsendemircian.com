@@ -200,8 +200,10 @@
     background-color: transparent;
     height: 100vh;
     transition: all 0.27s ease-in-out;
+    pointer-events: none;
     &.isOpen {
       background-color: #0000009c;
+      pointer-events: all;
       &:before {
         transform: skew(-14deg) translateX(0);
       }
