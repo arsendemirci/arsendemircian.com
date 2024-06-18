@@ -54,6 +54,9 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
       overflow-y: auto;
       overflow-x: hidden;
       padding: 10px;
+      @include mq-down(sm) {
+        max-height: unset;
+      }
     }
   }
   @include mq-down(md) {

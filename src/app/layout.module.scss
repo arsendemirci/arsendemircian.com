@@ -4,14 +4,12 @@
   justify-content: space-between;
   align-items: center;
   min-width: 100%;
-  min-height: 100vh;
+
   > main {
     min-width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh;
-    @include getBrandBg(center, rgb(0, 0, 0), 2, cover);
   }
 }

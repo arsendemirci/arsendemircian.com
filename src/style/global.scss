@@ -9,6 +9,9 @@ body {
 
 body {
   background-color: $mainBgColor;
+  min-height: 100vh;
+  @include getBrandBg(center, rgb(0, 0, 0), 2, cover);
+  background-attachment: fixed;
 }
 * {
   font-family: Verdana, Geneva, Tahoma, sans-serif;

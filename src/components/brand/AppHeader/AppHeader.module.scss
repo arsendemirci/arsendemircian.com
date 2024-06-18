@@ -145,6 +145,126 @@
     font-weight: bold;
     text-shadow: 2px 2px 6px gray;
   }
-  @include mq-hide-up(md);
-  @include mq-show-down(md);
+  .menu {
+    position: fixed;
+    top: 16px;
+    right: 18px;
+    z-index: 1;
+    a {
+      width: 30px;
+      height: 26px;
+      display: block;
+      .bars {
+        position: relative;
+        display: block;
+        width: 28px;
+        height: 4px;
+        margin: 0 auto;
+        background: white;
+        transition: all 0.275s;
+        &.isOpen {
+          transform-origin: 0 0;
+          transform: translateX(8px) rotate(45deg);
+          &:before {
+            transform: translateY(0px) rotate(-90deg);
+          }
+          &:after {
+            opacity: 0;
+          }
+        }
+        &:before {
+          content: '';
+          display: block;
+          height: 100%;
+          background: white;
+          transition: all 0.275s;
+          transform: translateY(18px);
+        }
+        &:after {
+          content: '';
+          display: block;
+          height: 100%;
+          background: white;
+          transition: all 0.275s;
+          transform: translateY(5px);
+        }
+      }
+    }
+  }
+  nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+    height: 100vh;
+    transition: all 0.27s ease-in-out;
+    &.isOpen {
+      background-color: #0000009c;
+      &:before {
+        transform: skew(-14deg) translateX(0);
+      }
+      ul {
+        transition-delay: 0.2s;
+        opacity: 1;
+        transform: skew(-14deg) translateX(-72px) translateY(-80px);
+        li {
+          @each $i in 1, 2, 3, 4, 5 {
+            &:nth-child(#{$i}) {
+              transition-delay: #{0.25 + $i * 0.1}s;
+            }
+          }
+
+          margin-right: 28px;
+        }
+      }
+    }
+    &:before {
+      transform: skew(-14deg) translateX(-120%);
+
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 60px;
+      background: $bg-gradient-primary;
+      transform-origin: 0 0;
+      // transform: skew(-14deg) translateX(-120%);
+      transition: all 0.275s 0.1s;
+      box-shadow: 3px 0px 16px #00000073;
+    }
+    ul {
+      padding: 0;
+      opacity: 0;
+      display: inline-flex;
+      flex-direction: column;
+      height: 93%;
+      align-items: flex-end;
+      justify-content: center;
+      transition: all 0.375s ease-in-out;
+      transform: skew(-14deg) translateX(-120%);
+      width: 100%;
+      transform-origin: 0 0;
+      li {
+        display: block;
+        margin: 0.5rem 0;
+        text-align: right;
+        transition: all 0.375s ease-in-out;
+        // transform: skew(0deg) translateX(-120%);
+        // margin-right: 22px;
+        a {
+          display: block;
+          padding: 12px 0;
+          color: white;
+          font-size: 1.4em;
+          text-decoration: none;
+          font-weight: bold;
+          text-shadow: 4px 4px 10px black;
+        }
+      }
+    }
+  }
+  @include mq-only-down(md);
 }

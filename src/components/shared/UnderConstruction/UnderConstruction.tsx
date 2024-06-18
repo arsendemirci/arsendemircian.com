@@ -1,10 +1,14 @@
 import styles from './UnderConstruction.module.scss';
+import Image from 'next/image';
 const UnderConstruction = () => {
   return (
     <div className={styles.main}>
-      <h1>
-        <span>Under Construction</span>
-      </h1>
+      <Image
+        src="/image/underconstruction.webp"
+        alt=""
+        width={260}
+        height={260}
+      ></Image>
     </div>
   );
 };

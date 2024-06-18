@@ -81,6 +81,9 @@
         }
       }
     }
+    @include mq-down(sm) {
+      margin-left: 0;
+    }
   }
   .downloadMobile {
     a {
@@ -99,10 +102,11 @@
   @include mq-down(md) {
     text-align: center;
     margin-top: 0;
-    a {
-      pointer-events: none;
-      h1 {
-        display: inline-block;
+    h1 {
+      display: inline-block;
+      a {
+        pointer-events: none;
+        display: inline-flex;
       }
     }
 
@@ -123,5 +127,8 @@
       visibility: hidden;
       display: none !important;
     }
+  }
+  @include mq-down(sm) {
+    padding: 0;
   }
 }
