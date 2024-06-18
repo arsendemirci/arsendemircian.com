@@ -63,6 +63,14 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
     border-radius: 0;
     margin-bottom: 140px;
     padding-bottom: 40px;
+    transform: perspective(1200px) translateX(0) translateY(0) rotateY(0)
+      scale(0.4);
+    &.close {
+      animation: fadeOutMobile 0.65s ease-in-out forwards;
+    }
+    &.open {
+      animation: fadeInMobile 0.65s ease-in-out forwards;
+    }
   }
 }
 @keyframes fadeIn {
@@ -91,5 +99,34 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
   100% {
     opacity: 0;
     transform: $transformOutLeave;
+  }
+}
+
+@keyframes fadeInMobile {
+  0% {
+    opacity: 0;
+    transform: translateY(600px) scale(0.4);
+  }
+  80% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.1);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+@keyframes fadeOutMobile {
+  0% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1.1);
+  }
+  100% {
+    opacity: 0;
+    transform: ranslateY(600px) scale(0.4);
   }
 }
