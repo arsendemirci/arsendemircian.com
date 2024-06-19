@@ -16,7 +16,7 @@ export interface AppContextType {
 }
 export interface AppContextProviderType {
   currentPath: string;
-  pageClass: string;
+  pageClass?: string;
   children: ReactNode;
 }
 export interface IconPropsType {
@@ -31,4 +31,8 @@ export interface SvgType {
 }
 export interface IconType {
   [key: string]: SvgType;
+}
+
+export interface LoaderPropsType {
+  show: boolean;
 }

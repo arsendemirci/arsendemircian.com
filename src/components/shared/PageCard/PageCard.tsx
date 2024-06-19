@@ -1,9 +1,9 @@
 'use client';
-import { useContext, useEffect, useState, useRef } from 'react';
+import { useContext, useEffect, useState, useRef, Fragment } from 'react';
 import { AppContext } from '@/context/contextProvider';
 import styles from './PageCard.module.scss';
 import { PageCardProps } from '@types';
-import { HomeHeader } from '@/components';
+import { HomeHeader, Loader } from '@/components';
 import { usePathname } from 'next/navigation';
 
 const PageCard: React.FC<PageCardProps> = ({ children }) => {
@@ -13,6 +13,7 @@ const PageCard: React.FC<PageCardProps> = ({ children }) => {
   const divRef = useRef<any>();
 
   useEffect(() => {
+    if (ctx.pageClass === 'close' && ctx.currentPath === pathName) return;
     setMainClass(`${styles.main} ${styles[ctx.pageClass]}`);
 
     if (ctx.pageClass === 'open') {
@@ -21,18 +22,23 @@ const PageCard: React.FC<PageCardProps> = ({ children }) => {
         current.scrollIntoView({ block: 'end', behavior: 'smooth' });
       }
     }
-  }, [ctx.pageClass, pathName]);
-
+  }, [ctx.pageClass]);
+  // useEffect(() => {
+  //   ctx.setPageClassName('open');
+  // }, [pathName]);
   return (
-    <section className={mainClass}>
-      <div ref={divRef}></div>
-      <div className={styles.wrapper}>
-        <div className={styles.header}>
-          {pathName == '/home' ? <HomeHeader /> : pathName.replace(/^\//, '')}
+    <Fragment>
+      <Loader show={ctx.pageClass !== 'open'}></Loader>
+      <section className={mainClass}>
+        <div ref={divRef}></div>
+        <div className={styles.wrapper}>
+          <div className={styles.header}>
+            {pathName == '/home' ? <HomeHeader /> : pathName.replace(/^\//, '')}
+          </div>
+          <div className={styles.body}>{children}</div>
         </div>
-        <div className={styles.body}>{children}</div>
-      </div>
-    </section>
+      </section>
+    </Fragment>
   );
 };
 

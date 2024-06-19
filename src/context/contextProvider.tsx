@@ -15,7 +15,7 @@ const AppContextProvider = ({
   children,
 }: AppContextProviderType) => {
   const [appPath, setPath] = useState<string>(currentPath);
-  const [pageClassName, setPageClassName] = useState<string>(pageClass);
+  const [pageClassName, setPageClassName] = useState<string>('');
 
   const context = {
     currentPath: appPath,
