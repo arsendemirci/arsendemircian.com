@@ -16,6 +16,7 @@ export interface AppContextType {
 }
 export interface AppContextProviderType {
   currentPath: string;
+  pageClass: string;
   children: ReactNode;
 }
 export interface IconPropsType {

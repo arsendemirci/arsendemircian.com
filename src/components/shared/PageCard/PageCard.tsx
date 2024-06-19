@@ -4,30 +4,24 @@ import { AppContext } from '@/context/contextProvider';
 import styles from './PageCard.module.scss';
 import { PageCardProps } from '@types';
 import { HomeHeader } from '@/components';
-import { usePathname, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 const PageCard: React.FC<PageCardProps> = ({ children }) => {
   const [mainClass, setMainClass] = useState(`${styles.main}`);
   const ctx = useContext(AppContext);
   const pathName = usePathname();
-  const router = useRouter();
   const divRef = useRef<any>();
-  useEffect(() => {
-    if (pathName !== ctx.currentPath) {
-      setMainClass(`${styles.main} ${styles.close}`);
-      setTimeout(() => {
-        router.push(ctx.currentPath);
-      }, 550);
-    }
-  }, [ctx.currentPath, router, pathName]);
 
   useEffect(() => {
-    setMainClass(`${styles.main} ${styles.open}`);
-    const { current } = divRef;
-    if (current !== null) {
-      current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    setMainClass(`${styles.main} ${styles[ctx.pageClass]}`);
+
+    if (ctx.pageClass === 'open') {
+      const { current } = divRef;
+      if (current !== null) {
+        current.scrollIntoView({ block: 'end', behavior: 'smooth' });
+      }
     }
-  }, [pathName]);
+  }, [ctx.pageClass, pathName]);
 
   return (
     <section className={mainClass}>
