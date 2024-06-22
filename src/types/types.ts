@@ -50,5 +50,8 @@ export interface TimelineItemPropsType{
   title:string;
   dateFrom:string;
   dateTo:string;
+  logo:string;
+  logoSize:string;
+  logoPos?:string;
   description:string;
 }

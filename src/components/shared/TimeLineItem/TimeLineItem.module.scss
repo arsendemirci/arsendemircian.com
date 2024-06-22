@@ -35,9 +35,25 @@
     max-height: 54px;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
+    .head {
+      display: flex;
+      align-items: center;
+      max-height: 54px;
+      .logo {
+        height: 54px;
+        width: 54px;
+        margin-right: 8px;
+        .img {
+          height: 50px;
+          width: 50px;
+          background-repeat: no-repeat;
+        }
+      }
+    }
     .company {
       display: block;
       margin: 0;
+      margin-bottom: 8px;
       font-size: 16px;
       line-height: 1.2em;
     }
@@ -58,7 +74,7 @@
     }
     &:hover {
       // height: min-content;
-      max-height: 200px;
+      max-height: 230px;
       .details {
         opacity: 1;
       }
