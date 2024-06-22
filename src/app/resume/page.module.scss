@@ -1,31 +1,45 @@
 .main {
   display: flex;
-  flex-direction: row;
   width: 100%;
   gap: 15px;
   align-items: flex-start;
-  padding: 10px;
-  overflow: hidden;
-  .skills {
-    width: 50%;
 
+  overflow: hidden;
+  @include mq-up(sm) {
+    padding: 10px;
+  }
+  @include mq-up(md) {
     > div {
-      overflow-y: auto;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-      padding: 15px;
-      height: calc($pageBodyMinHeight - 86px);
+      width: 50%;
+      > div {
+        overflow-y: auto;
+        height: calc($pageBodyMinHeight - 86px);
+      }
     }
   }
-  .xp {
-    width: 50%;
+  @include mq-down(md) {
+    flex-direction: column;
+    > div {
+      width: 100%;
+    }
+  }
+  .skills {
     h1 {
       padding-left: 10px;
     }
     > div {
-      height: calc($pageBodyMinHeight - 86px);
-      overflow-y: auto;
+      display: flex;
+      align-content: flex-start;
+      flex-wrap: wrap;
+      gap: 20px;
+      padding: 10px;
+    }
+  }
+  .xp {
+    h1 {
+      padding-left: 10px;
+    }
+    > div {
       padding-left: 10px;
       padding-right: 15px;
     }

@@ -32,13 +32,13 @@
     z-index: 1;
   }
   .wrapper {
-    max-height: 54px;
     transition: all 0.5s ease-in-out;
     overflow: hidden;
+
     .head {
       display: flex;
-      align-items: center;
-      max-height: 54px;
+      align-items: flex-start;
+
       .logo {
         height: 54px;
         width: 54px;
@@ -58,7 +58,6 @@
       line-height: 1.2em;
     }
     span {
-      display: inline-block;
       font-size: 14px;
       line-height: 1.2em;
       margin-bottom: 8px;
@@ -67,9 +66,6 @@
       }
       &.date {
         color: #9e9e9e;
-        margin-left: 5px;
-        padding-left: 8px;
-        border-left: 1px solid #e0e0e0;
       }
     }
     &:hover {
@@ -87,5 +83,32 @@
   }
   &:last-child {
     margin-bottom: 20px;
+  }
+  @include mq-up(xs) {
+    .wrapper {
+      max-height: 54px;
+      .head {
+        max-height: 54px;
+      }
+      span {
+        display: inline-block;
+        &.date {
+          margin-left: 5px;
+          padding-left: 8px;
+          border-left: 1px solid #e0e0e0;
+        }
+      }
+    }
+  }
+  @include mq-down(xs) {
+    .wrapper {
+      max-height: 90px;
+      .head {
+        max-height: 90px;
+      }
+      span {
+        display: block;
+      }
+    }
   }
 }
