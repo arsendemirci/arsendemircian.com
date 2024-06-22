@@ -1,0 +1,167 @@
+@property --degFill {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+@property --degFillOffset {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.main {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  height: 105px;
+  width: 105px;
+  background: #deeaf5;
+  border-radius: 20px;
+  padding: 10px 0;
+  border: solid 1px #b6b6b6;
+  box-shadow: 0 0 10px #b6b6b6;
+  .diskBorder {
+    box-shadow: 0 0 7px 1px #b1b1b185;
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+    margin: 0 auto;
+    background-image: conic-gradient(
+      rgba(0, 142, 255),
+      rgba(0, 142, 255) var(--degFillOffset),
+      rgba(137, 137, 137, 0) var(--degFill)
+    );
+    display: flex;
+
+    .disk {
+      width: 50px;
+      height: 50px;
+      box-shadow: inset 0 0 15px #99999996;
+      position: relative;
+      border-radius: 100%;
+      background: white;
+      margin: auto;
+      display: flex;
+      z-index: 99;
+      svg {
+        margin: auto;
+      }
+    }
+  }
+  .text {
+    position: absolute;
+    bottom: 10px;
+    transition: all 0.5s ease-out;
+    transform: perspective(60px) rotate3d(0, 0, 0, 0deg) translateX(0px)
+      scale(1);
+  }
+  .xp {
+    position: absolute;
+    bottom: 10px;
+    transition: all 0.5s ease-out;
+    transform: perspective(70px) rotate3d(0, 90, 0, 60deg) translateX(90px)
+      scale(0);
+  }
+  &:hover {
+    .diskBorder {
+      @each $num in 1, 2, 3, 4, 5, 6, 7, 8 {
+        $deg: $num * 45;
+        @keyframes conic-gradient-#{$num} {
+          0% {
+            --degFill: 0deg;
+            --degFillOffset: 0deg;
+          }
+          40% {
+            --degFill: #{$deg}deg;
+            --degFillOffset: 20deg;
+          }
+
+          100% {
+            --degFill: #{$deg}deg;
+            --degFillOffset: #{$deg}deg;
+          }
+        }
+        &.animateFill_#{$num} {
+          animation: conic-gradient-#{$num} 1s ease-out forwards;
+        }
+      }
+    }
+    .text {
+      transform: perspective(50px) rotate3d(0, 90, 0, -60deg) translateX(-90px)
+        scale(0);
+    }
+    .xp {
+      transform: perspective(60px) rotate3d(0, 0, 0, 0deg) translateX(0px)
+        scale(1);
+    }
+  }
+  &.Safari {
+    display: inline-block;
+    .diskBorder {
+      position: relative;
+      overflow: hidden;
+      margin: unset;
+      left: 50%;
+      transform: translateX(-50%);
+      &:after {
+        content: ' ';
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        margin: 0 auto;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        // transform: translateY(-60px);
+        transition: all 0.5s ease-out;
+      }
+    }
+    .text {
+      left: 50%;
+      width: 100%;
+      transition: all 0.5s ease-out;
+      transform: perspective(60px) rotate3d(0, 0, 0, 0deg) translateX(-50%)
+        scale(1);
+    }
+    .xp {
+      left: 50%;
+      width: 100%;
+      transition: all 0.5s ease-out;
+      transform: perspective(50px) rotate3d(0, 1, 0, 60deg) translateX(0)
+        scale(0);
+    }
+    &:hover {
+      .diskBorder {
+        @each $num in 1, 2, 3, 4, 5, 6, 7, 8 {
+          $deg: $num * 45;
+
+          &.animateFill_#{$num} {
+            &:after {
+              background-image: conic-gradient(
+                rgba(0, 142, 255),
+                rgba(0, 142, 255) #{$deg}deg,
+                rgba(137, 137, 137, 0.061) #{$deg}deg
+              );
+              opacity: 1;
+              transform: rotate(1turn) translateY(0);
+            }
+          }
+        }
+      }
+      .text {
+        transform: perspective(50px) rotate3d(0, 1, 0, -40deg)
+          translateX(-300px) scale(0);
+      }
+      .xp {
+        transform: perspective(60px) rotate3d(0, 0, 0, 0deg) translateX(-50%)
+          scale(1);
+      }
+    }
+  }
+}

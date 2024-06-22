@@ -51,7 +51,7 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
       max-height: $pageBodyMinHeight;
       width: 100%;
       background-color: white;
-      overflow-y: auto;
+      overflow-y: hidden;
       overflow-x: hidden;
       padding: 10px;
       @include mq-down(sm) {

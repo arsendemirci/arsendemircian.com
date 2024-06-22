@@ -24,10 +24,12 @@ export interface IconPropsType {
   color?: string;
   width?: number;
   height?: number;
+  bg?:any;
 }
 export interface SvgType {
   fragment: ReactNode;
   viewBox: string;
+  fill?: string;
 }
 export interface IconType {
   [key: string]: SvgType;
@@ -35,4 +37,18 @@ export interface IconType {
 
 export interface LoaderPropsType {
   show: boolean;
+}
+export interface SkillCardPropsType {
+  name: string;
+  xp: number;
+  icon:IconPropsType;
+  browser?:string;
+}
+
+export interface TimelineItemPropsType{
+  company:string;
+  title:string;
+  dateFrom:string;
+  dateTo:string;
+  description:string;
 }

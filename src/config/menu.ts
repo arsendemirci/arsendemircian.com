@@ -1,6 +1,6 @@
 import { NavLinkType } from '@types';
 
-export const links: Array<NavLinkType> = [
+const links: Array<NavLinkType> = [
   {
     name: 'Home',
     href: '/home',
@@ -18,3 +18,5 @@ export const links: Array<NavLinkType> = [
     href: '/contact',
   },
 ];
+
+export default links;

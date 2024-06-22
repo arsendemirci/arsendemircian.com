@@ -1,6 +1,8 @@
 'use client';
 // import type { Metadata } from 'next';
-import { usePathname } from 'next/navigation';
+// import { headers } from 'next/headers';
+import { usePathname, useParams, useSearchParams } from 'next/navigation';
+// import { useSearchParams } from "next/navigation";
 import { Inter } from 'next/font/google';
 import '@/style/global.scss';
 import styles from './layout.module.scss';
@@ -18,7 +20,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // const search = useSearchParams();
+  // const hede = search.get('search');
   const pathName = usePathname();
+  //    const headersList = headers();
+  //  const enginName = headersList.get('x-engine');
+
   return (
     <html lang="en">
       <body className={inter.className}>
