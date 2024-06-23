@@ -14,6 +14,7 @@
       > div {
         overflow-y: auto;
         height: calc($pageBodyMinHeight - 86px);
+        padding-right: 15px;
       }
     }
   }
@@ -23,16 +24,21 @@
       width: 100%;
     }
   }
+
   .skills {
     h1 {
       padding-left: 10px;
     }
     > div {
-      display: flex;
-      align-content: flex-start;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+      grid-auto-rows: max-content;
+      justify-items: stretch;
       gap: 20px;
       padding: 10px;
+      > div {
+        width: 100%;
+      }
     }
   }
   .xp {
@@ -41,7 +47,6 @@
     }
     > div {
       padding-left: 10px;
-      padding-right: 15px;
     }
     .timeline {
       border-left: 2px solid gray;

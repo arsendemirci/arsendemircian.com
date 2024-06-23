@@ -109,6 +109,10 @@
       span {
         display: block;
       }
+      &:hover {
+        max-height:340px;
+
+      }
     }
   }
 }
