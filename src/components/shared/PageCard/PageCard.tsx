@@ -53,5 +53,6 @@ const PageCard: React.FC<PageCardProps> = forwardRef(
     );
   },
 );
+PageCard.displayName = 'PageCard';
 
 export default PageCard;
