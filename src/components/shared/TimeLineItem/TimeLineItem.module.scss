@@ -101,6 +101,20 @@
     }
   }
   @include mq-down(xs) {
+    margin-left: 8px;
+    margin-right: 6px;
+    &:before {
+      width: 6px;
+      height: 20px;
+      top: 16px;
+      left: -16px;
+    }
+    &:after {
+      width: 13px;
+      height: 6px;
+      top: 25px;
+      left: -13px;
+    }
     .wrapper {
       max-height: 90px;
       .head {
@@ -110,8 +124,7 @@
         display: block;
       }
       &:hover {
-        max-height:340px;
-
+        max-height: 380px;
       }
     }
   }

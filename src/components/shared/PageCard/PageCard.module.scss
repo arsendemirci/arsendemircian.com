@@ -22,6 +22,7 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
   opacity: 0;
   transition: background-color 0.65s ease-in-out;
   transform: perspective(1200px) translateX(-500px) rotateY(50deg) scale(0.4);
+  margin-bottom: 120px;
   &.close {
     animation: fadeOut 0.65s ease-in-out forwards;
     .wrapper {
@@ -48,12 +49,14 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
       text-shadow: 0 0 20px BLACK;
     }
     .body {
-      max-height: $pageBodyMinHeight;
       width: 100%;
       background-color: white;
       overflow-y: hidden;
       overflow-x: hidden;
-      padding: 10px;
+
+      @include mq-up(sm) {
+        padding: 10px;
+      }
       @include mq-down(sm) {
         max-height: unset;
       }

@@ -7,13 +7,12 @@ import { links } from '@/config';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 
-const AppHeader: React.FC<AppHeaderProps> = ({ title }) => {
-   const ref = useRef<any | null[]>([]);
+const AppHeader: React.FC<AppHeaderProps> = ({ title, isFixed }) => {
+  const ref = useRef<any | null[]>([]);
   const pushRef = (el: any | null) => ref.current.push(el!);
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const ctx = useContext(AppContext);
   const pathName = usePathname();
-  const router = useRouter();
   const goTo = (path: string) => {
     ctx.setPath(path);
   };
@@ -43,7 +42,7 @@ const AppHeader: React.FC<AppHeaderProps> = ({ title }) => {
 
   return (
     <Fragment>
-      <header className={styles.main}>
+      <header className={`${styles.main} ${isFixed && styles.fixed}`}>
         <div className={styles.wrapper}>
           <div className={styles.navigation}>
             <ul>

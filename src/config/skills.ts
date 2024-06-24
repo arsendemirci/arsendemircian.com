@@ -3,13 +3,31 @@ import { SkillCardPropsType } from '@types';
 const skills = <SkillCardPropsType[]>[
   {
     name: 'JavaScript',
-    xp: 8,
+    xp: 12,
     icon: {
       icon: 'javascript',
       width: 28,
       height: 28,
       color: '#F7DF1E',
       bg: 'black',
+    },
+  },
+  {
+    name: 'HTML',
+    xp: 8,
+    icon: {
+      icon: 'html5',
+      width: 32,
+      height: 32,
+    },
+  },
+  {
+    name: 'CSS',
+    xp: 8,
+    icon: {
+      icon: 'css3',
+      width: 32,
+      height: 32,
     },
   },
   {
@@ -33,6 +51,15 @@ const skills = <SkillCardPropsType[]>[
     },
   },
   {
+    name: 'Redux',
+    xp: 5,
+    icon: {
+      icon: 'redux',
+      width: 32,
+      height: 32,
+    },
+  },
+  {
     name: 'Vue.js',
     xp: 7,
     icon: {
@@ -40,6 +67,15 @@ const skills = <SkillCardPropsType[]>[
       width: 30,
       height: 30,
       color: '#4FC08D',
+    },
+  },
+  {
+    name: 'Vuetify',
+    xp: 1,
+    icon: {
+      icon: 'vuetify',
+      width: 30,
+      height: 30,
     },
   },
   {
@@ -63,6 +99,15 @@ const skills = <SkillCardPropsType[]>[
     },
   },
   {
+    name: 'Bootstrap',
+    xp: 6,
+    icon: {
+      icon: 'bootstrap',
+      width: 32,
+      height: 32,
+    },
+  },
+  {
     name: 'Node.js',
     xp: 2,
     icon: {
@@ -83,6 +128,15 @@ const skills = <SkillCardPropsType[]>[
     },
   },
   {
+    name: 'Webpack',
+    xp: 6,
+    icon: {
+      icon: 'webpack',
+      width: 36,
+      height: 36,
+    },
+  },
+  {
     name: 'C-Sharp',
     xp: 6,
     icon: {
@@ -100,6 +154,24 @@ const skills = <SkillCardPropsType[]>[
       width: 34,
       height: 34,
       color: '#CC2927',
+    },
+  },
+  {
+    name: 'Git',
+    xp: 6,
+    icon: {
+      icon: 'git',
+      width: 34,
+      height: 34,
+    },
+  },
+  {
+    name: 'Jest',
+    xp: 4,
+    icon: {
+      icon: 'jest',
+      width: 30,
+      height: 30,
     },
   },
 ];

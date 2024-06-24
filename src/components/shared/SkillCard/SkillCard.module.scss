@@ -18,11 +18,11 @@
   position: relative;
   height: 105px;
   width: 105px;
-  background: #deeaf5;
+  // background: #deeaf5;
   border-radius: 20px;
-  padding: 10px 0;
-  border: solid 1px #b6b6b6;
-  box-shadow: 0 0 10px #b6b6b6;
+  padding: 2px 0;
+  // border: solid 1px #b6b6b6;
+  // box-shadow: 0 0 10px #b6b6b6;
   .diskBorder {
     box-shadow: 0 0 7px 1px #b1b1b185;
     width: 60px;
@@ -30,8 +30,8 @@
     border-radius: 100%;
     margin: 0 auto;
     background-image: conic-gradient(
-      rgba(0, 142, 255),
-      rgba(0, 142, 255) var(--degFillOffset),
+      $bg-primary-light,
+      $bg-primary-light var(--degFillOffset),
       rgba(137, 137, 137, 0) var(--degFill)
     );
     display: flex;
@@ -68,7 +68,7 @@
   }
   &:hover {
     .diskBorder {
-      @each $num in 1, 2, 3, 4, 5, 6, 7, 8 {
+      @each $num in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
         $deg: $num * 45;
         @keyframes conic-gradient-#{$num} {
           0% {
@@ -139,14 +139,14 @@
     }
     &:hover {
       .diskBorder {
-        @each $num in 1, 2, 3, 4, 5, 6, 7, 8 {
+        @each $num in 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 {
           $deg: $num * 45;
 
           &.animateFill_#{$num} {
             &:after {
               background-image: conic-gradient(
-                rgba(0, 142, 255),
-                rgba(0, 142, 255) #{$deg}deg,
+                $bg-primary-light,
+                $bg-primary-dark #{$deg}deg,
                 rgba(137, 137, 137, 0.061) #{$deg}deg
               );
               opacity: 1;

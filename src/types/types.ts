@@ -1,6 +1,7 @@
-import { ReactNode } from 'react';
+import { MutableRefObject, ReactNode } from 'react';
 export interface AppHeaderProps {
   title: string;
+  isFixed: boolean;
 }
 export interface NavLinkType {
   name: string;
@@ -9,6 +10,7 @@ export interface NavLinkType {
 
 export interface PageCardProps {
   children: ReactNode;
+  ref: any;
 }
 
 export interface AppContextType {
@@ -24,7 +26,7 @@ export interface IconPropsType {
   color?: string;
   width?: number;
   height?: number;
-  bg?:any;
+  bg?: any;
 }
 export interface SvgType {
   fragment: ReactNode;
@@ -41,17 +43,17 @@ export interface LoaderPropsType {
 export interface SkillCardPropsType {
   name: string;
   xp: number;
-  icon:IconPropsType;
-  browser?:string;
+  icon: IconPropsType;
+  browser?: string;
 }
 
-export interface TimelineItemPropsType{
-  company:string;
-  title:string;
-  dateFrom:string;
-  dateTo:string;
-  logo:string;
-  logoSize:string;
-  logoPos?:string;
-  description:string;
+export interface TimelineItemPropsType {
+  company: string;
+  title: string;
+  dateFrom: string;
+  dateTo: string;
+  logo: string;
+  logoSize: string;
+  logoPos?: string;
+  description: string;
 }
