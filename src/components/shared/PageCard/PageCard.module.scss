@@ -11,9 +11,9 @@ $transformOutEnter: perspective(1100px) translateX(-500px) rotateY(50deg)
   $scaleClose;
 .main {
   width: 100%;
+  padding-bottom: 40px;
   max-width: $pageMaxWidth;
   margin-top: $pageMarginTop;
-  min-height: $pageMinHeight;
   box-shadow: $boxShadow;
   border-radius: 20px;
   overflow: hidden;
