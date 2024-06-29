@@ -176,4 +176,5 @@ const skills = <SkillCardPropsType[]>[
   },
 ];
 
+
 export default skills;
