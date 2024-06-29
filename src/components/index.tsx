@@ -6,4 +6,4 @@ export { default as HomeHeader } from './brand/HomeHeader/HomeHeader';
 export { default as Loader } from './shared/Loader/Loader';
 export { default as SkillCard } from './shared/SkillCard/SkillCard';
 export { default as TimeLineItem } from './shared/TimeLineItem/TimeLineItem';
-export { default as SkillChip } from './shared/SkillChip/SkillChip';
+export { default as IconChip } from './shared/IconChip/IconChip';

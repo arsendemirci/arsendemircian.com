@@ -57,3 +57,18 @@ export interface TimelineItemPropsType {
   logoPos?: string;
   description: string;
 }
+export interface ChipsType {
+  [key: string]: {
+    label: string;
+    labelColor?: string;
+    labelBg?: string;
+    text?: string;
+    textBg: string;
+    textColor: string;
+  };
+}
+export interface IconChipPropsType {
+  icon: string;
+  label: string;
+  text?: string;
+}

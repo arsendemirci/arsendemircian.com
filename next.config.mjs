@@ -16,6 +16,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'picsum.photos',
       },
+      {
+        protocol: 'http',
+        hostname: 'via.placeholder.com',
+      },
     ],
   },
   sassOptions: {
