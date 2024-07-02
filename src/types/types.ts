@@ -72,3 +72,16 @@ export interface IconChipPropsType {
   label: string;
   text?: string;
 }
+
+export interface PortfolioItemLinkType {
+  name: string;
+  icon: string;
+  link: string;
+}
+export interface PortfolioItemType {
+  name: string;
+  description: string;
+  images: Array<string>;
+  tags: Array<string>;
+  links?: Array<PortfolioItemLinkType>;
+}
