@@ -6,12 +6,7 @@ import { PortfolioItemType } from '@types';
 const ProjectCard = (props: PortfolioItemType) => {
   return (
     <div className={s.main}>
-      <Image
-        src={props.images[0]}
-        alt="project"
-        width={360}
-        height={300}
-      />
+      <Image src={props.images[0]} alt="project" width={360} height={300} />
       <div className={s.content}>
         <h2>{props.name}</h2>
         <div className={s.detail}>
@@ -21,11 +16,18 @@ const ProjectCard = (props: PortfolioItemType) => {
             <div className={s.links}>
               {props.links?.map((item) => (
                 <a key={item.icon} href={item.link} title={item.name}>
-                  <Icon icon={item.icon} width={26} height={26} />
+                  <Icon
+                    icon={item.icon}
+                    width={26}
+                    height={26}
+                    color="#ffffffbd"
+                  />
                 </a>
               ))}
             </div>
-            <a className={s.more} href="">Read more <i className={s.arrow}></i></a>
+            <a className={s.more} href="">
+              Read more <i className={s.arrow}></i>
+            </a>
           </div>
         </div>
       </div>
