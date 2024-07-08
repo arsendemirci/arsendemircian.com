@@ -9,12 +9,15 @@ $pageMarginTop: calc($appHeaderHeight + 30px);
 $pageMarginBottom: 10px;
 $bg-primary-dark: rgb(11, 63, 165);
 $bg-primary-light: rgb(0 142 255);
-$bg-gradient-primary: linear-gradient($bg-primary-light 0%, $bg-primary-dark 100%);
+$bg-gradient-primary: linear-gradient(
+  $bg-primary-light 0%,
+  $bg-primary-dark 100%
+);
 
 $pageMinHeight: calc(
   100vh - ($footerTotalHeight + $pageMarginTop + $pageMarginBottom)
 );
 $pageBodyMinHeight: calc($pageMinHeight - $pageHeaderHeight);
 $bodyMaxWidth: 1200px;
-$pageMaxWidth: calc($bodyMaxWidth - 50px);
+$pageMaxWidth: $bodyMaxWidth;
 $boxShadow: 0 0 20px rgb(86, 86, 86);

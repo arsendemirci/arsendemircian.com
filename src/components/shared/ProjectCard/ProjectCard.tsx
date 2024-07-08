@@ -17,7 +17,12 @@ const ProjectCard = (props: PortfolioItemType) => {
             <div className={s.links}>
               {props.links?.map((item) => (
                 <a key={item.icon} href={item.link} title={item.name}>
-                  <Icon icon={item.icon} width={26} height={26} />
+                  <Icon
+                    icon={item.icon}
+                    width={26}
+                    height={26}
+                    color="#ffffffbd"
+                  />
                 </a>
               ))}
             </div>

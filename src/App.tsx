@@ -9,10 +9,8 @@ const App = (props: any) => {
     const handleScroll = () => {
       const { top } = refPage.current.getBoundingClientRect();
       if (top < 66 && !isFixed) {
-        console.log('icerde ma');
         setIsFixed(true);
       } else if (top > 66 && isFixed) {
-        console.log('disarda ma');
         setIsFixed(false);
       }
     };
