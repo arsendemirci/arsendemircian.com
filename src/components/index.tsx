@@ -8,3 +8,4 @@ export { default as SkillCard } from './shared/SkillCard/SkillCard';
 export { default as TimeLineItem } from './shared/TimeLineItem/TimeLineItem';
 export { default as IconChip } from './shared/IconChip/IconChip';
 export { default as ProjectCard } from './shared/ProjectCard/ProjectCard';
+export { default as Modal } from './shared/Modal/Modal';

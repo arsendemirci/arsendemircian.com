@@ -84,4 +84,5 @@ export interface PortfolioItemType {
   images: Array<string>;
   tags: Array<string>;
   links?: Array<PortfolioItemLinkType>;
+  readMore:Function;
 }

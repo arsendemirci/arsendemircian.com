@@ -1,8 +1,9 @@
 'use client';
 import { Fragment, useEffect, useState, useCallback, useRef } from 'react';
-import { AppHeader, AppFooter, PageCard } from '@/components';
+import { AppHeader, AppFooter, PageCard,Modal } from '@/components';
 const App = (props: any) => {
   const [isFixed, setIsFixed] = useState(false);
+
   const refPage = useRef<any>();
   useEffect(() => {
     const handleScroll = () => {

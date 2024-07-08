@@ -1,3 +1,4 @@
+
 import s from './ProjectCard.module.scss';
 import Image from 'next/image';
 import Icon from '@icon';
@@ -6,12 +7,7 @@ import { PortfolioItemType } from '@types';
 const ProjectCard = (props: PortfolioItemType) => {
   return (
     <div className={s.main}>
-      <Image
-        src={props.images[0]}
-        alt="project"
-        width={360}
-        height={300}
-      />
+      <Image src={props.images[0]} alt="project" width={360} height={300} />
       <div className={s.content}>
         <h2>{props.name}</h2>
         <div className={s.detail}>
@@ -25,7 +21,9 @@ const ProjectCard = (props: PortfolioItemType) => {
                 </a>
               ))}
             </div>
-            <a className={s.more} href="">Read more <i className={s.arrow}></i></a>
+            <a onClick={() => props.readMore(true)} className={s.more} role='button'>
+              Read more <i className={s.arrow}></i>
+            </a>
           </div>
         </div>
       </div>
