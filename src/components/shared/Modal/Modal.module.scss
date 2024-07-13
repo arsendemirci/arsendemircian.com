@@ -1,5 +1,43 @@
+$slideHeight: 500px;
+$slideHeightMobile: 250px;
+$modalIndex: 9;
+@mixin icon-button {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.23s ease;
+  transform: scale(1);
+  border-radius: 50%;
+  color: rgb(205, 205, 205);
+  background: rgb(82, 82, 82);
+  &:not(.disabled) {
+    &:hover {
+      transform: scale(1.1);
+      box-shadow: 3px 3px 8px rgba(128, 128, 128, 0.559);
+      color: rgb(255, 255, 255);
+      background: rgb(49, 49, 49);
+    }
+    cursor: pointer;
+  }
+  &.disabled {
+    pointer-events: none;
+    background: #ebebebf5;
+    color: #a3a3a3;
+  }
+  @include mq-down(xs) {
+    width: 30px;
+    height: 30px;
+    svg {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}
+
 .backdrop {
-  position: absolute;
+  position: fixed;
   background: rgba(0, 0, 0, 0.459);
   top: 0;
   left: 0;
@@ -8,27 +46,88 @@
   z-index: 1;
   opacity: 0;
   pointer-events: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
   &.open {
     opacity: 1;
     pointer-events: all;
   }
 }
+.modalwrap {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  background: transparent;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: $modalIndex;
+  justify-content: center;
+  pointer-events: none;
+  &.open {
+    pointer-events: all;
+  }
+}
 .modal {
+  z-index: $modalIndex;
+  transform: perspective(1200px) rotateX(90deg) scale(0);
   background: white;
   width: 80%;
-  margin: auto;
   max-width: 1200px;
+  left: 50%;
   opacity: 0;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  border-radius: 20px;
   &.open {
     opacity: 1;
+    transform: perspective(1200px) rotateX(0deg) scale(1);
+  }
+  .buttonclose {
+    z-index: 2;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    @include icon-button;
+  }
+  .content {
+    padding: 20px;
+    > div {
+      margin-bottom: 20px;
+    }
+    .heading {
+      .links {
+        a {
+          @include icon-button;
+          &:not(:last-child) {
+            margin-right: 6px;
+          }
+        }
+      }
+      .title {
+        h2 {
+          margin: 0;
+        }
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+    }
   }
 }
 
 .slider {
   position: relative;
-  height: 600px;
+  height: 500px;
+  .carousel {
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+  }
   .slide {
     left: 50%;
     position: absolute;
@@ -36,44 +135,84 @@
     transition: all 0.5s ease-out;
     &.active {
       opacity: 1;
-      transform: perspective(600px) rotateY(0deg) translateX(-50%)
-        scale(1);
+      transform: perspective(600px) rotateY(0deg) translateX(-50%) scale(1);
     }
     &.left {
       left: -30%;
-      transform: perspective(600px) rotateY(-60deg) translateX(0%)
-        scale(0.2);
+      @include mq-down(xs) {
+        left: -80%;
+      }
+      transform: perspective(600px) rotateY(-60deg) translateX(0%) scale(0.2);
     }
     &.right {
       left: 70%;
-      transform: perspective(600px) rotateY(60deg) translateX(0%)
-        scale(0.2);
+      transform: perspective(600px) rotateY(60deg) translateX(0%) scale(0.2);
     }
     img {
+      // width: 100%;
+      height: 500px;
+      object-fit: contain;
     }
   }
   .navcontrol {
     position: absolute;
     top: 50%;
-    border-radius: 50%;
-    transition: all .22s ease;
-    &:not(.disabled){
-        &:hover{
-            transform: scale(1.2);
-        }
-        cursor: pointer;
-    }
+    @include icon-button;
+
     &.navleft {
       left: -10px;
+      @include mq-down(xs) {
+        left: 5px;
+      }
     }
     &.navright {
       right: -10px;
+      @include mq-down(xs) {
+        right: 5px;
+      }
     }
+  }
+}
+.description {
+  max-height: 120px;
+  > div {
+    &.overflow {
+      height: 120px;
+      max-height: 120px;
+      overflow: auto;
+    }
+  }
+}
 
-    &.disabled {
-      pointer-events: none;
-      svg {
-        fill: rgba(0, 0, 0, 0.359);
+@include mq-down(sm) {
+  .modal {
+    width: 96%;
+    max-width: 100%;
+    max-height: 99%;
+    transform: scale(0);
+    &.open {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .slider {
+      height: $slideHeightMobile;
+      .carousel {
+        height: $slideHeightMobile;
+      }
+      .slide {
+        img {
+          height: $slideHeightMobile;
+        }
+      }
+    }
+    .description {
+      max-height: 200px;
+      > div {
+        &.overflow {
+          height: 200px;
+          max-height: 200px;
+          overflow: auto;
+        }
       }
     }
   }

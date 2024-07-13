@@ -5,7 +5,7 @@ import { IconPropsType } from '@types';
 const Icon: React.FC<IconPropsType> = ({ width, height, color, icon, bg }) => {
   return (
     <svg
-      style={{ backgroundColor: bg }}
+      style={{ backgroundColor: bg || iconConfig[icon].bg || '' }}
       width={width ?? 20}
       height={height ?? 20}
       fill={

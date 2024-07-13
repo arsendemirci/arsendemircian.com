@@ -34,7 +34,7 @@
   transition: all .15s ease;
   position: fixed;
   box-sizing: content-box;
-  z-index: 99;
+  z-index: 8;
   top: 0;
   left: 50%;
   transform: translateX(-50%);
@@ -152,7 +152,7 @@
   height: 60px;
   background: $bg-gradient-primary;
   box-shadow: $boxShadow;
-  z-index: 1000;
+  z-index: 8;
   .logo {
     font-size: 18px;
     font-weight: bold;

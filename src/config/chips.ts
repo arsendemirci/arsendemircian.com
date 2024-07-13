@@ -19,7 +19,7 @@ const chips: ChipsType = {
     labelBg: 'darkgray',
     text: 'JavaScript',
     textBg: '#F7DF1E',
-    textColor: 'white',
+    textColor: 'black',
   },
   react: {
     label: 'React',

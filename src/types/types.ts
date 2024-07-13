@@ -32,6 +32,7 @@ export interface SvgType {
   fragment: ReactNode;
   viewBox: string;
   fill?: string;
+  bg?:string;
 }
 export interface IconType {
   [key: string]: SvgType;
@@ -70,7 +71,11 @@ export interface ChipsType {
 export interface IconChipPropsType {
   icon: string;
   label: string;
+  labelColor?: string;
+  labelBg?: string;
   text?: string;
+  textBg: string;
+  textColor: string;
 }
 
 export interface PortfolioItemLinkType {
@@ -84,5 +89,5 @@ export interface PortfolioItemType {
   images: Array<string>;
   tags: Array<string>;
   links?: Array<PortfolioItemLinkType>;
-  readMore:Function;
+  readMore?: Function;
 }

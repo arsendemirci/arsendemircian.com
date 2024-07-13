@@ -21,7 +21,7 @@ const portfolio: Array<PortfolioItemType> = [
       {
         name: 'GitHub',
         link: 'https://github.com/arsendemirci/ag-autocomplete',
-        icon: 'github',
+        icon: 'github1',
       },
       {
         name: 'Demo',
@@ -43,7 +43,7 @@ const portfolio: Array<PortfolioItemType> = [
       {
         name: 'GitHub',
         link: 'https://github.com/arsendemirci/vue3-leaderboard',
-        icon: 'github',
+        icon: 'github1',
       },
       {
         name: 'Demo',
@@ -54,8 +54,11 @@ const portfolio: Array<PortfolioItemType> = [
   },
   {
     name: 'React Typeboard',
-    description:
-      'This is a typeboard component, it simulates typing action on a greatly designed animated virtual keyboard and input as you type. ',
+    description: `This project is actually a part of a case study that
+                  facilitates Rick and Morty api to search and select multiple
+                  characters of the TV show Rick and Morty. ag-autocomplete is a
+                  custom component that takes advantage of many features of
+                  React. Designed with React + TypeScript and SCSS.`,
     images: [
       '/image/projects/react-typeboard-1.png',
       '/image/projects/react-typeboard-2.png',
@@ -65,7 +68,7 @@ const portfolio: Array<PortfolioItemType> = [
       {
         name: 'CodePen',
         link: 'https://codepen.io/arsen-demircian/pen/JjzXRKV',
-        icon: 'codepen',
+        icon: 'codepen1',
       },
     ],
   },
@@ -82,7 +85,7 @@ const portfolio: Array<PortfolioItemType> = [
       {
         name: 'GitHub',
         link: 'https://github.com/arsendemirci/ag-select',
-        icon: 'github',
+        icon: 'github1',
       },
       {
         name: 'Demo',
