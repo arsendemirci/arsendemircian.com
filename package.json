@@ -10,10 +10,15 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.16.1",
     "@types/ua-parser-js": "^0.7.39",
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
+    "react-google-recaptcha": "^3.1.0",
+    "react-hook-form": "^7.52.1",
     "react-window": "^1.8.10",
     "ua-parser-js": "^1.0.38"
   },
@@ -21,6 +26,7 @@
     "@types/node": "^20",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18.3.0",
+    "@types/react-google-recaptcha": "^2.1.9",
     "@types/react-window": "^1.8.8",
     "eslint": "^8",
     "eslint-config-next": "14.2.3",

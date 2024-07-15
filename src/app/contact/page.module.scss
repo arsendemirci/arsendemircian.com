@@ -1,0 +1,38 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 50px;
+  .info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 45%;
+    .infoItem {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      a {
+        text-decoration: underline;
+        color: blrgb(0, 47, 255);
+      }
+    }
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 55%;
+    .formcontrol {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 18px;
+      flex-wrap: nowrap;
+      img {
+        top: 14px;
+        position: relative;
+      }
+    }
+  }
+}
