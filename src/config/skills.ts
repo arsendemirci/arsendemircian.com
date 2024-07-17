@@ -147,6 +147,15 @@ const skills = <SkillCardPropsType[]>[
     },
   },
   {
+    name: 'AWS',
+    xp: 1,
+    icon: {
+      icon: 'aws',
+      width: 36,
+      height: 36,
+    },
+  },
+  {
     name: 'MS SQL',
     xp: 6,
     icon: {
@@ -175,6 +184,5 @@ const skills = <SkillCardPropsType[]>[
     },
   },
 ];
-
 
 export default skills;
