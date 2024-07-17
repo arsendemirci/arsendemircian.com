@@ -1,14 +1,50 @@
 'use client';
 import Image from 'next/image';
 import ReCAPTCHA from 'react-google-recaptcha';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import s from './page.module.scss';
-import { TextField } from '@mui/material';
+import { TextField, Button } from '@mui/material';
 import Icon from '@icon';
 import { UnderConstruction } from '@/components';
 
 export default function Contact() {
-  const captchaRef = useRef(null);
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [subject, setSubject] = useState('');
+  const [message, setMessage] = useState('');
+
+  const handleSubmit = () => {
+    const formData = {
+      name,
+      email,
+      subject,
+      message,
+    };
+
+    fetch(
+      'https://am4tzovf50.execute-api.eu-north-1.amazonaws.com/dev/submit',
+      {
+        // URL that represents the backend API endpoint to which the form data is going to be sent
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      },
+    )
+      .then(function (response) {
+        if (response.ok) {
+          // Redirect to the thank you page
+          console.log('form submission successfull');
+        } else {
+          console.error('form submission failed', response);
+        }
+      })
+      .catch(function (error) {
+        console.error(error);
+        alert('Form submission failed. Please try again later.');
+      });
+  };
   return (
     <div className={s.main}>
       <div className={s.info}>
@@ -53,15 +89,34 @@ export default function Contact() {
           </label>
         </div>
       </div>
-      <form className={s.form}>
+      <div className={s.form} onSubmit={handleSubmit}>
         <h2> Contact Form</h2>
         <div className={s.formcontrol}>
           <Image src="/image/icon/user.png" alt="user" width={40} height={40} />
-          <TextField fullWidth label="Full Name" variant="standard" />
+          <TextField
+            fullWidth
+            label="Full Name"
+            variant="standard"
+            onChange={(e) => setName(e.target.value)}
+          />
         </div>
         <div className={s.formcontrol}>
           <Image src="/image/icon/mail.png" alt="mail" width={40} height={40} />
-          <TextField fullWidth label="Email *" variant="standard" />
+          <TextField
+            fullWidth
+            label="Email *"
+            variant="standard"
+            onChange={(e) => setEmail(e.target.value)}
+          />
+        </div>
+        <div className={s.formcontrol}>
+          <Image src="/image/icon/mail.png" alt="mail" width={40} height={40} />
+          <TextField
+            fullWidth
+            label="Subject *"
+            variant="standard"
+            onChange={(e) => setSubject(e.target.value)}
+          />
         </div>
         <div className={s.formcontrol}>
           <Image
@@ -70,19 +125,20 @@ export default function Contact() {
             width={40}
             height={40}
           />
-          <TextField fullWidth label="Message" variant="standard" multiline />
+          <TextField
+            fullWidth
+            label="Message"
+            variant="standard"
+            multiline
+            onChange={(e) => setMessage(e.target.value)}
+          />
         </div>
         <div className={s.formaction}>
-          <ReCAPTCHA
-            sitekey="6LdkM9cjAAAAAAAjf8-hBEBJEIYzFl2MTp4yXAX7"
-            ref={captchaRef}
-          />
-          <a download={true} href="/files/Arsen-Resume.pdf">
-            <Icon width={28} height={28} icon="download" />
-            Download Resume
-          </a>
+          <Button variant="contained" onClick={handleSubmit}>
+            Submit
+          </Button>
         </div>
-      </form>
+      </div>
     </div>
   );
 }
