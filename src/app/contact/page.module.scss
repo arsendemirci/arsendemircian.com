@@ -3,6 +3,14 @@
   flex-direction: row;
   width: 100%;
   padding: 50px;
+  h2 {
+    padding-left: 40px;
+  }
+  hr {
+    @include mq-only-down(sm);
+    border-color: rgb(221 221 221);
+    margin: 25px 0;
+  }
   .info {
     display: flex;
     flex-direction: column;
@@ -35,9 +43,39 @@
       }
     }
     .formaction {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      button {
+        float: right;
+      }
+    }
+  }
+  @include mq-down(md) {
+    padding: 25px;
+  }
+  @include mq-down(sm) {
+    padding: 35px;
+    flex-direction: column-reverse;
+    h2 {
+      padding-left: 0;
+      text-align: center;
+    }
+    .info {
+      width: 100%;
+    }
+    .form {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  @include mq-down(xs) {
+    padding: 10px;
+    .form {
+      .formaction {
+        text-align: center;
+        button {
+          width: 60%;
+          float: unset;
+        }
+      }
     }
   }
 }

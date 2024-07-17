@@ -2,78 +2,23 @@
 import Image from 'next/image';
 import toast, { Toaster } from 'react-hot-toast';
 import { useForm } from 'react-hook-form';
-import { useRef, useState } from 'react';
 import s from './page.module.scss';
 import { TextField, Button } from '@mui/material';
-import Icon from '@icon';
-import { UnderConstruction } from '@/components';
+import { ContactFormDataType } from '@types';
+import { validation } from '@/config/form';
 
-const validation = {
-  email: {
-    required: 'Please enter a valid email',
-    pattern: {
-      value:
-        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-      message: 'Please enter a valid email',
-    },
-  },
-  subject: {
-    required: 'Please enter your password!',
-  },
-  name: {
-    required: 'Please enter your name!',
-  },
-  message: {
-    required: 'Please enter your name!',
-  },
-  verificationCode: {
-    required: 'Please enter the valid code!',
-    pattern: { value: /\b\d{5}\b/, message: 'Please enter the valid code!' },
-  },
-};
-type FormDataType = {
-  name: string;
-  email: string;
-  subject: string;
-  message: string;
-};
 export default function Contact() {
-  // const [nameValidation, setNameValidatin] = useState({
-  //   error: false,
-  //   msg: '',
-  // });
-  const [emailValidation, setEmailValidatin] = useState({
-    error: false,
-    msg: '',
-  });
-  // const [subjectValidation, setSubjectValidatin] = useState({
-  //   error: false,
-  //   msg: '',
-  // });
-  // const [messageValidation, setMessageNameValidatin] = useState({
-  //   error: false,
-  //   msg: '',
-  // });
-
-  // const [email, setEmail] = useState('');
-  // const [subject, setSubject] = useState('');
-  // const [message, setMessage] = useState('');
-
   const {
     register: registerContactForm,
     handleSubmit: handleContactForm,
     formState: { errors: submitErrors },
     reset: resetForm,
-  } = useForm<FormDataType>({ mode: 'onBlur', reValidateMode: 'onChange' });
+  } = useForm<ContactFormDataType>({
+    mode: 'onBlur',
+    reValidateMode: 'onChange',
+  });
 
-  const submitContactForm = (data: FormDataType) => {
-    // const formData = {
-    //   name,
-    //   email,
-    //   subject,
-    //   message,
-    // };
-    console.log(data);
+  const submitContactForm = (data: ContactFormDataType) => {
     const fetchPromise = fetch(
       'https://dnx4gzte9b.execute-api.eu-north-1.amazonaws.com/dev/submit',
       {
@@ -92,7 +37,7 @@ export default function Contact() {
         loading: 'Please Wait...',
         success: () => {
           resetForm();
-          return `Thanks for reaching out, your message is submitted successfully.`;
+          return `Your message is submitted successfully.`;
         },
         error: (err) => `This just happened: ${err.toString()}`,
       },
@@ -151,6 +96,7 @@ export default function Contact() {
           </label>
         </div>
       </div>
+      <hr />
       <form className={s.form} onSubmit={handleContactForm(submitContactForm)}>
         <h2> Contact Form</h2>
         <div className={s.formcontrol}>
@@ -171,14 +117,14 @@ export default function Contact() {
             fullWidth
             label="Email *"
             variant="standard"
-            error={!!submitErrors?.email || emailValidation.error}
-            helperText={submitErrors?.email?.message || emailValidation.msg}
+            error={!!submitErrors?.email}
+            helperText={submitErrors?.email?.message}
             {...registerContactForm('email', validation.email)}
           />
         </div>
         <div className={s.formcontrol}>
           <Image
-            src="/image/icon/mail.png"
+            src="/image/icon/subject.png"
             alt="subject"
             width={40}
             height={40}

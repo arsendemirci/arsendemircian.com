@@ -32,7 +32,7 @@ export interface SvgType {
   fragment: ReactNode;
   viewBox: string;
   fill?: string;
-  bg?:string;
+  bg?: string;
 }
 export interface IconType {
   [key: string]: SvgType;
@@ -90,4 +90,10 @@ export interface PortfolioItemType {
   tags: Array<string>;
   links?: Array<PortfolioItemLinkType>;
   readMore?: Function;
+}
+export interface ContactFormDataType {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
 }
