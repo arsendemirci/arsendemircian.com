@@ -1,27 +1,80 @@
 'use client';
 import Image from 'next/image';
-import ReCAPTCHA from 'react-google-recaptcha';
+import toast, { Toaster } from 'react-hot-toast';
+import { useForm } from 'react-hook-form';
 import { useRef, useState } from 'react';
 import s from './page.module.scss';
 import { TextField, Button } from '@mui/material';
 import Icon from '@icon';
 import { UnderConstruction } from '@/components';
 
+const validation = {
+  email: {
+    required: 'Please enter a valid email',
+    pattern: {
+      value:
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+      message: 'Please enter a valid email',
+    },
+  },
+  subject: {
+    required: 'Please enter your password!',
+  },
+  name: {
+    required: 'Please enter your name!',
+  },
+  message: {
+    required: 'Please enter your name!',
+  },
+  verificationCode: {
+    required: 'Please enter the valid code!',
+    pattern: { value: /\b\d{5}\b/, message: 'Please enter the valid code!' },
+  },
+};
+type FormDataType = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 export default function Contact() {
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [subject, setSubject] = useState('');
-  const [message, setMessage] = useState('');
+  // const [nameValidation, setNameValidatin] = useState({
+  //   error: false,
+  //   msg: '',
+  // });
+  const [emailValidation, setEmailValidatin] = useState({
+    error: false,
+    msg: '',
+  });
+  // const [subjectValidation, setSubjectValidatin] = useState({
+  //   error: false,
+  //   msg: '',
+  // });
+  // const [messageValidation, setMessageNameValidatin] = useState({
+  //   error: false,
+  //   msg: '',
+  // });
 
-  const handleSubmit = () => {
-    const formData = {
-      name,
-      email,
-      subject,
-      message,
-    };
+  // const [email, setEmail] = useState('');
+  // const [subject, setSubject] = useState('');
+  // const [message, setMessage] = useState('');
 
-    fetch(
+  const {
+    register: registerContactForm,
+    handleSubmit: handleContactForm,
+    formState: { errors: submitErrors },
+    reset: resetForm,
+  } = useForm<FormDataType>({ mode: 'onBlur', reValidateMode: 'onChange' });
+
+  const submitContactForm = (data: FormDataType) => {
+    // const formData = {
+    //   name,
+    //   email,
+    //   subject,
+    //   message,
+    // };
+    console.log(data);
+    const fetchPromise = fetch(
       'https://dnx4gzte9b.execute-api.eu-north-1.amazonaws.com/dev/submit',
       {
         // URL that represents the backend API endpoint to which the form data is going to be sent
@@ -29,21 +82,30 @@ export default function Contact() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(data),
       },
-    )
-      .then(function (response) {
-        if (response.ok) {
-          // Redirect to the thank you page
-          console.log('form submission successfull');
-        } else {
-          console.error('form submission failed', response);
-        }
-      })
-      .catch(function (error) {
-        console.error(error);
-        alert('Form submission failed. Please try again later.');
-      });
+    );
+
+    toast.promise(
+      fetchPromise,
+      {
+        loading: 'Please Wait...',
+        success: () => {
+          resetForm();
+          return `Thanks for reaching out, your message is submitted successfully.`;
+        },
+        error: (err) => `This just happened: ${err.toString()}`,
+      },
+      {
+        style: {
+          minWidth: '250px',
+        },
+        success: {
+          duration: 5000,
+          icon: '🔥',
+        },
+      },
+    );
   };
   return (
     <div className={s.main}>
@@ -89,15 +151,18 @@ export default function Contact() {
           </label>
         </div>
       </div>
-      <div className={s.form} onSubmit={handleSubmit}>
+      <form className={s.form} onSubmit={handleContactForm(submitContactForm)}>
         <h2> Contact Form</h2>
         <div className={s.formcontrol}>
           <Image src="/image/icon/user.png" alt="user" width={40} height={40} />
           <TextField
             fullWidth
-            label="Full Name"
+            label="Full Name *"
+            type="text"
             variant="standard"
-            onChange={(e) => setName(e.target.value)}
+            error={!!submitErrors?.name}
+            helperText={submitErrors?.name?.message}
+            {...registerContactForm('name', validation.name)}
           />
         </div>
         <div className={s.formcontrol}>
@@ -106,16 +171,25 @@ export default function Contact() {
             fullWidth
             label="Email *"
             variant="standard"
-            onChange={(e) => setEmail(e.target.value)}
+            error={!!submitErrors?.email || emailValidation.error}
+            helperText={submitErrors?.email?.message || emailValidation.msg}
+            {...registerContactForm('email', validation.email)}
           />
         </div>
         <div className={s.formcontrol}>
-          <Image src="/image/icon/mail.png" alt="mail" width={40} height={40} />
+          <Image
+            src="/image/icon/mail.png"
+            alt="subject"
+            width={40}
+            height={40}
+          />
           <TextField
             fullWidth
             label="Subject *"
             variant="standard"
-            onChange={(e) => setSubject(e.target.value)}
+            error={!!submitErrors?.subject}
+            helperText={submitErrors?.subject?.message}
+            {...registerContactForm('subject', validation.subject)}
           />
         </div>
         <div className={s.formcontrol}>
@@ -127,18 +201,21 @@ export default function Contact() {
           />
           <TextField
             fullWidth
-            label="Message"
+            label="Message *"
             variant="standard"
             multiline
-            onChange={(e) => setMessage(e.target.value)}
+            error={!!submitErrors?.message}
+            helperText={submitErrors?.message?.message}
+            {...registerContactForm('message', validation.message)}
           />
         </div>
         <div className={s.formaction}>
-          <Button variant="contained" onClick={handleSubmit}>
+          <Button variant="contained" type="submit">
             Submit
           </Button>
         </div>
-      </div>
+      </form>
+      <Toaster />
     </div>
   );
 }
