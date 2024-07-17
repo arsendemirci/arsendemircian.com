@@ -22,7 +22,7 @@ export default function Contact() {
     };
 
     fetch(
-      'https://am4tzovf50.execute-api.eu-north-1.amazonaws.com/dev/submit',
+      'https://dnx4gzte9b.execute-api.eu-north-1.amazonaws.com/dev/submit',
       {
         // URL that represents the backend API endpoint to which the form data is going to be sent
         method: 'POST',
