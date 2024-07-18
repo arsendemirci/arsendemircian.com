@@ -136,17 +136,24 @@ $modalIndex: 9;
     &.active {
       opacity: 1;
       transform: perspective(600px) rotateY(0deg) translateX(-50%) scale(1);
+      @include mq-down(xs) {
+        transform: translateX(-50%) scale(1);
+      }
     }
     &.left {
       left: -30%;
-      @include mq-down(xs) {
-        left: -80%;
-      }
       transform: perspective(600px) rotateY(-60deg) translateX(0%) scale(0.2);
+      @include mq-down(xs) {
+        transform: translateX(-50%) scale(0.2);
+      }
     }
     &.right {
       left: 70%;
       transform: perspective(600px) rotateY(60deg) translateX(0%) scale(0.2);
+      @include mq-down(xs) {
+        left: 110%;
+        transform: translateX(-50%) scale(0.2);
+      }
     }
     img {
       // width: 100%;
