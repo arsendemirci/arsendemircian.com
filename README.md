@@ -12,7 +12,7 @@ You can find detail about me and my works and contact with me if you want.
 Visit my website clicking the link below.
 <h2> :clapper: Live Website</h2>
 
-You can visit the [arsendemircian.com](https://arsendemircian.netlify.app/)  to see it for yourself.
+You can visit the [arsendemirci.com](https://arsendemirci.com/)  to see it for yourself.
 
 <h2>:gun: Getting Started</h2>
 Clone the project and run the npm commands below to get started.
