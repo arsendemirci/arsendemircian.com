@@ -3,15 +3,7 @@ import Icon from '@icon';
 export default function Home() {
   return (
     <div className={styles.main}>
-      <h1>
-        <a download={true} href="/files/Arsen-Resume.pdf">
-          About Me
-          <div className={styles.download}>
-            <Icon width={28} height={28} icon="download" />
-            <label>Download Resume</label>
-          </div>
-        </a>
-      </h1>
+      <h1>About Me</h1>
       <div className={styles.mainWrapper}>
         <div className={styles.about}>
           <div>
