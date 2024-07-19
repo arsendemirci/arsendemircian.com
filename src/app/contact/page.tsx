@@ -43,7 +43,7 @@ export default function Contact() {
       },
       {
         style: {
-          minWidth: '250px',
+          minWidth: '240px',
         },
         success: {
           duration: 5000,
