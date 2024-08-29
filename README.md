@@ -1,6 +1,6 @@
 
 
-<h1>:star: arsendemircian.com  </h1> 
+<h1>:star: arsendemirci.com  </h1> 
 
 ![Static Badge](https://img.shields.io/badge/TS-TypeScript-%233178C6?style=plastic&logo=TypeScript)
 ![Static Badge](https://img.shields.io/badge/React-18.2.0-blue?style=plastic&logo=React) ![Static Badge](https://img.shields.io/badge/next.js-14.2.3-%23000000?style=plastic&logo=Next.js) ![Static Badge](https://img.shields.io/badge/Sass-1.69.5-pink?style=plastic&logo=Sass) 
